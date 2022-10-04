@@ -9,8 +9,26 @@ def print_hi(name):
     print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
 
+def new_func(func):
+    def wrappler(a, b):
+        if b > a:
+            func(b, a)
+        else:
+            func(a, b)
+
+    return wrappler
+
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print_hi('PyCharm')
+
+
+@new_func
+def test(a, b):
+    return print(a)
+
+
+test(4, 5)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
